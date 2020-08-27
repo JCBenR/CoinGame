@@ -26,8 +26,16 @@ int main(int argc, const char * argv[]) {
     //get amounts of item and amount paid
     cout << "enter item price in cents: " << endl;
     cin >> itemCost;
+    if (itemCost < 1) {
+        cout<<"cannot be negative, please start again"<<endl;
+        return 1;
+    }
     cout << "enter amount paid in cents: " << endl;
     cin >> amtPaid;
+    if (amtPaid < 1) {
+        cout<<"cannot be negative, please start again"<<endl;
+        return 1;
+    }
     change = amtPaid - itemCost;
     
     //calculate change
