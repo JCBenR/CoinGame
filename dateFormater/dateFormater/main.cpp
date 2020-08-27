@@ -48,13 +48,15 @@ int main(int argc, const char * argv[]) {
         month = "August";
     } else if (monthFromInput == 9){
         month = "September";
-    } else if (monthFromInput == 12){
+    } else if (monthFromInput == 10){
         month = "October";
-    } else if (monthFromInput == 12){
+    } else if (monthFromInput == 11){
         month = "November";
     } else if (monthFromInput == 12){
         month = "December";
     }
+    
+    cout<<month<<" "<<dayFromInput<<", "<<yearFromInput<<endl;
     
     return 0;
 }
