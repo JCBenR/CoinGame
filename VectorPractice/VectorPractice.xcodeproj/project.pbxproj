@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5E4C235424F8494A00A687B3 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C235324F8494A00A687B3 /* main.cpp */; };
-		5E4E287E24FD607100EE09CA /* LetterHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E287C24FD607100EE09CA /* LetterHelpers.cpp */; };
-		5E4E288124FD61C700EE09CA /* wordHelpers.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E287F24FD61C700EE09CA /* wordHelpers.cpp */; };
+		5E4E288F24FD656200EE09CA /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E288E24FD656200EE09CA /* main.cpp */; };
+		5E4E289724FD658500EE09CA /* sum.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E289524FD658500EE09CA /* sum.cpp */; };
+		5E4E289A24FD8F2F00EE09CA /* stringToVec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E289824FD8F2F00EE09CA /* stringToVec.cpp */; };
+		5E4E289D24FD943800EE09CA /* reverse.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E4E289B24FD943800EE09CA /* reverse.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5E4C234E24F8494A00A687B3 /* CopyFiles */ = {
+		5E4E288924FD656200EE09CA /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -25,16 +26,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5E4C235024F8494A00A687B3 /* stringAnalyzer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = stringAnalyzer; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E4C235324F8494A00A687B3 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		5E4E287C24FD607100EE09CA /* LetterHelpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LetterHelpers.cpp; sourceTree = "<group>"; };
-		5E4E287D24FD607100EE09CA /* LetterHelpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LetterHelpers.hpp; sourceTree = "<group>"; };
-		5E4E287F24FD61C700EE09CA /* wordHelpers.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = wordHelpers.cpp; sourceTree = "<group>"; };
-		5E4E288024FD61C700EE09CA /* wordHelpers.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = wordHelpers.hpp; sourceTree = "<group>"; };
+		5E4E288B24FD656200EE09CA /* VectorPractice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = VectorPractice; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E4E288E24FD656200EE09CA /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5E4E289524FD658500EE09CA /* sum.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = sum.cpp; sourceTree = "<group>"; };
+		5E4E289624FD658500EE09CA /* sum.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = sum.hpp; sourceTree = "<group>"; };
+		5E4E289824FD8F2F00EE09CA /* stringToVec.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stringToVec.cpp; sourceTree = "<group>"; };
+		5E4E289924FD8F2F00EE09CA /* stringToVec.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = stringToVec.hpp; sourceTree = "<group>"; };
+		5E4E289B24FD943800EE09CA /* reverse.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = reverse.cpp; sourceTree = "<group>"; };
+		5E4E289C24FD943800EE09CA /* reverse.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = reverse.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		5E4C234D24F8494A00A687B3 /* Frameworks */ = {
+		5E4E288824FD656200EE09CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -44,69 +47,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5E4C234724F8494A00A687B3 = {
+		5E4E288224FD656200EE09CA = {
 			isa = PBXGroup;
 			children = (
-				5E4C235224F8494A00A687B3 /* stringAnalyzer */,
-				5E4C235124F8494A00A687B3 /* Products */,
+				5E4E288D24FD656200EE09CA /* VectorPractice */,
+				5E4E288C24FD656200EE09CA /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		5E4C235124F8494A00A687B3 /* Products */ = {
+		5E4E288C24FD656200EE09CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5E4C235024F8494A00A687B3 /* stringAnalyzer */,
+				5E4E288B24FD656200EE09CA /* VectorPractice */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5E4C235224F8494A00A687B3 /* stringAnalyzer */ = {
+		5E4E288D24FD656200EE09CA /* VectorPractice */ = {
 			isa = PBXGroup;
 			children = (
-				5E4E287C24FD607100EE09CA /* LetterHelpers.cpp */,
-				5E4E287F24FD61C700EE09CA /* wordHelpers.cpp */,
-				5E4E288024FD61C700EE09CA /* wordHelpers.hpp */,
-				5E4E287D24FD607100EE09CA /* LetterHelpers.hpp */,
-				5E4C235324F8494A00A687B3 /* main.cpp */,
+				5E4E288E24FD656200EE09CA /* main.cpp */,
+				5E4E289824FD8F2F00EE09CA /* stringToVec.cpp */,
+				5E4E289B24FD943800EE09CA /* reverse.cpp */,
+				5E4E289C24FD943800EE09CA /* reverse.hpp */,
+				5E4E289924FD8F2F00EE09CA /* stringToVec.hpp */,
+				5E4E289524FD658500EE09CA /* sum.cpp */,
+				5E4E289624FD658500EE09CA /* sum.hpp */,
 			);
-			path = stringAnalyzer;
+			path = VectorPractice;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5E4C234F24F8494A00A687B3 /* stringAnalyzer */ = {
+		5E4E288A24FD656200EE09CA /* VectorPractice */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5E4C235724F8494A00A687B3 /* Build configuration list for PBXNativeTarget "stringAnalyzer" */;
+			buildConfigurationList = 5E4E289224FD656200EE09CA /* Build configuration list for PBXNativeTarget "VectorPractice" */;
 			buildPhases = (
-				5E4C234C24F8494A00A687B3 /* Sources */,
-				5E4C234D24F8494A00A687B3 /* Frameworks */,
-				5E4C234E24F8494A00A687B3 /* CopyFiles */,
+				5E4E288724FD656200EE09CA /* Sources */,
+				5E4E288824FD656200EE09CA /* Frameworks */,
+				5E4E288924FD656200EE09CA /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = stringAnalyzer;
-			productName = stringAnalyzer;
-			productReference = 5E4C235024F8494A00A687B3 /* stringAnalyzer */;
+			name = VectorPractice;
+			productName = VectorPractice;
+			productReference = 5E4E288B24FD656200EE09CA /* VectorPractice */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		5E4C234824F8494A00A687B3 /* Project object */ = {
+		5E4E288324FD656200EE09CA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Justin Siebenhaar";
 				TargetAttributes = {
-					5E4C234F24F8494A00A687B3 = {
+					5E4E288A24FD656200EE09CA = {
 						CreatedOnToolsVersion = 11.6;
 					};
 				};
 			};
-			buildConfigurationList = 5E4C234B24F8494A00A687B3 /* Build configuration list for PBXProject "stringAnalyzer" */;
+			buildConfigurationList = 5E4E288624FD656200EE09CA /* Build configuration list for PBXProject "VectorPractice" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -114,31 +119,32 @@
 				en,
 				Base,
 			);
-			mainGroup = 5E4C234724F8494A00A687B3;
-			productRefGroup = 5E4C235124F8494A00A687B3 /* Products */;
+			mainGroup = 5E4E288224FD656200EE09CA;
+			productRefGroup = 5E4E288C24FD656200EE09CA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5E4C234F24F8494A00A687B3 /* stringAnalyzer */,
+				5E4E288A24FD656200EE09CA /* VectorPractice */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		5E4C234C24F8494A00A687B3 /* Sources */ = {
+		5E4E288724FD656200EE09CA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E4C235424F8494A00A687B3 /* main.cpp in Sources */,
-				5E4E288124FD61C700EE09CA /* wordHelpers.cpp in Sources */,
-				5E4E287E24FD607100EE09CA /* LetterHelpers.cpp in Sources */,
+				5E4E289D24FD943800EE09CA /* reverse.cpp in Sources */,
+				5E4E288F24FD656200EE09CA /* main.cpp in Sources */,
+				5E4E289A24FD8F2F00EE09CA /* stringToVec.cpp in Sources */,
+				5E4E289724FD658500EE09CA /* sum.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		5E4C235524F8494A00A687B3 /* Debug */ = {
+		5E4E289024FD656200EE09CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -196,7 +202,7 @@
 			};
 			name = Debug;
 		};
-		5E4C235624F8494A00A687B3 /* Release */ = {
+		5E4E289124FD656200EE09CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -247,7 +253,7 @@
 			};
 			name = Release;
 		};
-		5E4C235824F8494A00A687B3 /* Debug */ = {
+		5E4E289324FD656200EE09CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -257,7 +263,7 @@
 			};
 			name = Debug;
 		};
-		5E4C235924F8494A00A687B3 /* Release */ = {
+		5E4E289424FD656200EE09CA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
@@ -270,25 +276,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5E4C234B24F8494A00A687B3 /* Build configuration list for PBXProject "stringAnalyzer" */ = {
+		5E4E288624FD656200EE09CA /* Build configuration list for PBXProject "VectorPractice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E4C235524F8494A00A687B3 /* Debug */,
-				5E4C235624F8494A00A687B3 /* Release */,
+				5E4E289024FD656200EE09CA /* Debug */,
+				5E4E289124FD656200EE09CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5E4C235724F8494A00A687B3 /* Build configuration list for PBXNativeTarget "stringAnalyzer" */ = {
+		5E4E289224FD656200EE09CA /* Build configuration list for PBXNativeTarget "VectorPractice" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				5E4C235824F8494A00A687B3 /* Debug */,
-				5E4C235924F8494A00A687B3 /* Release */,
+				5E4E289324FD656200EE09CA /* Debug */,
+				5E4E289424FD656200EE09CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 5E4C234824F8494A00A687B3 /* Project object */;
+	rootObject = 5E4E288324FD656200EE09CA /* Project object */;
 }
