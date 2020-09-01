@@ -52,7 +52,7 @@ bool Contains(vector<int> input, int lookFor)
 int FindMin(vector<int> input)
 {
   // TODO: Fill in implementation. Do not always return 0.
-    int lowNum, maxNum = 0;
+    int lowNum, maxNum = input[0];
     for(int i : input){
         if (i > maxNum) {
             maxNum = i;
@@ -82,7 +82,7 @@ int FindMin(vector<int> input)
 int FindMax(vector<int> input)
 {
   // TODO: Fill in implementation. Do not always return 0.
-    int lowNum = 0, maxNum=0;
+    int lowNum = input[0], maxNum=input[0];
     for(int i : input){
         if(i < lowNum){
             lowNum = i;

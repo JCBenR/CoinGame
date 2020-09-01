@@ -52,6 +52,9 @@ int main()
     
     //single value vector
     vector<int> v4 = {6};
+    
+    //all negative vectore
+    vector<int> v5 = {-1,-5,-3,-8,-2};
   
   
   /*
@@ -79,7 +82,7 @@ int main()
         ErrorExit("not sorted");
         
 
-    FindMin(v1);
+    FindMin(v1);//**NEEDS FIXING: doesn't work with all negative vector;
     FindMax(v1);
     Average(v1);
   // TODO: Add your own tests that thoroughly exercise your VectorUtil library.
