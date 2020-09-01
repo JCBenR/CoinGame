@@ -25,9 +25,19 @@ void reverse(){
     for(int i : numVec){
         backwardsVec.insert(backwardsVec.begin(), i);
     }
-    
+
     //Print out backwardsVec
     for(int i : backwardsVec){
         cout<<i<<endl;
     }
+    
+//    //ANOTHER OPTION FOR REVERSING
+//    for (int i = numVec.size()-1; i<numVec.size(); i--) {
+//        backwardsVec.push_back(numVec[i]);
+//    }
+//
+//    //Print out backwardsVec
+//    for(int i : backwardsVec){
+//        cout<<i<<endl;
+//    }
 }

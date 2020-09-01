@@ -29,7 +29,4 @@ void stringToVec(){
     for(char i : stringToChars){
         cout<<i<<endl;
     }
-    
-    
-    
 }

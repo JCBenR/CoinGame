@@ -10,7 +10,7 @@
 #define reverse_hpp
 
 #include <stdio.h>
-
+using namespace std;
 void reverse();
 
 #endif /* reverse_hpp */
