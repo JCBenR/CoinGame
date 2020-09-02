@@ -15,9 +15,9 @@ vector<Politician> democrats(vector<Politician> someThing){
     //create placeholder vector to return just democrats from main vector
     vector<Politician> dems;
     //loop through vector, find only those who are dems, push to temp vector
-    for (int i = 0; i<someThing.size(); i++) {
-        if (someThing[i].party == "democrat") {
-            dems.push_back(someThing[i]);
+    for (Politician i: someThing) {
+        if (i.party == "democrat") {
+            dems.push_back(i);
         }
         //return temp vector
     } return dems;
