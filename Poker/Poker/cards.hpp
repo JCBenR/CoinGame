@@ -32,4 +32,9 @@ struct Deck {
 //declaring our functions using references.
 void getDeck(Deck&);
 void printDeck(Deck&);
+void shuffle(Deck& deck);
+Deck hand(Deck deck);
+void printHand(Deck& deck);
+bool isFlush(Deck deck);
+void isStraight(Deck deck);
 #endif /* cards_hpp */

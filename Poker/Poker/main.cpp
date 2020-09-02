@@ -12,12 +12,28 @@
 
 using namespace std;
 
+
+
 int main(int argc, const char * argv[]) {
+    //TEST DECKS
+    Deck flush = {
+        {{10, "ten", "Spades"}, {3, "three", "Spades"}, {4, "four", "Spades"}, {5, "five", "Spades"}, {6, "six", "Spades"}}
+    };
+    
+    
     //we create a deck called myDeck, of type Deck.
     Deck myDeck;
     //we pass mydeck into the get deck function
     getDeck(myDeck);
-    printDeck(myDeck);
+    shuffle(myDeck);
+    
+    Deck newHand = hand(myDeck);
+    printDeck(flush);
+    bool flushTest = isFlush(flush);
+    std::cout<<flushTest<<std::endl;
+    isStraight(flush);
+    
+    
 
     return 0;
 }
