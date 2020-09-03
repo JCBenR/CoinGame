@@ -50,13 +50,6 @@ void printDeck(Deck& deck){
     }
 }
 
-//void printHand(Deck& deck){
-//    cout<<"HAND"<<endl;
-//    for (Card c : deck.cards) {
-//           cout<<c.rankNum<<" of "<<c.suit<<endl;
-//       }
-//}
-
 void shuffle(Deck& deck){
     
     for (int i = 0; i<deck.cards.size(); i++) {
@@ -65,9 +58,6 @@ void shuffle(Deck& deck){
         deck.cards[i] = deck.cards[a];
         deck.cards[a] = tempCard;
     }
-//    for(Card i: deck.cards){
-//        int a = rand()%52;
-//    }
 }
 
 Deck hand(Deck& deck){
@@ -77,18 +67,6 @@ Deck hand(Deck& deck){
     } return handDeck;
 }
 
-bool isFlush(Deck& deck){
-    string mainCard = deck.cards[0].suit;
-    for(Card card: deck.cards){
-        if (card.suit != mainCard) {
-            return false;
-        }
-    } return true;
-}
-//bool compareCards (Card a, Card b)
-//{
-//    return a.rankNum < b.rankNum;
-//}
 int findMin(Deck& deck){
     Card minCard = deck.cards[0];
     for (Card i: deck.cards)
@@ -101,6 +79,38 @@ int findMin(Deck& deck){
     return minCard.rankNum;
 }
 
+void swap(Card& value1, Card& value2){
+    Card temp = value1;
+    value1 = value2;
+    value2 = temp;
+}
+
+int smallestIndex(Deck& deck, int startIdx){
+    
+    int minIdx = startIdx;
+    
+    for(int index = startIdx + 1; index < deck.cards.size(); ++index){
+        if (deck.cards[index].rankNum < deck.cards[minIdx].rankNum)
+            minIdx = index;
+    }
+    
+    return minIdx;
+}
+
+void selectionSortHand(Deck& deck){
+    int minIndex;
+    for (int index = 0; index < deck.cards.size(); ++index) {
+        minIndex = smallestIndex(deck, index);
+//        this is being reset to the smallest index each loop.
+//        so the smallest index is being swapped with the card at index.
+//        which means it's getting moved to the bottom (just as we see).
+//        wee need a way to iterate to the next smallest index.
+        if (deck.cards[minIndex].rankNum != deck.cards[index].rankNum) {
+            swap(deck.cards[minIndex], deck.cards[index]);
+        }
+    }
+}
+
 bool Contains(Deck& deck, int lookFor)
 {
     for (Card i: deck.cards)
@@ -110,8 +120,16 @@ bool Contains(Deck& deck, int lookFor)
             return true;
         }
     }
-
   return false;
+}
+
+bool isFlush(Deck& deck){
+    string mainCard = deck.cards[0].suit;
+    for(Card card: deck.cards){
+        if (card.suit != mainCard) {
+            return false;
+        }
+    } return true;
 }
 
 bool isStraight(Deck& deck){
@@ -129,7 +147,27 @@ bool isStraight(Deck& deck){
         }
     }
     return true;
+}
+
+
+//This function takes in a deck, sorts the deck. CheckIndex is set to zero. on each for loop: card low is set to checkIndex spot, and cardNext is set to that spot + 1. which would make them the adjacent spots in the vector. checking to see that cardNext == cardLow +1. repeat array 4 times (because we know what the first card is). 
+bool isStraight2(Deck& deck){
+    selectionSortHand(deck);
+    int checkIndex = 0;
+    
+
+    for (int i = 0; i<4; i++) {
+        int cardLow = deck.cards[checkIndex].rankNum;
+        int cardNext = deck.cards[checkIndex + 1].rankNum;
+        if (cardNext == cardLow+1) {
+//            cout<<cardNext<<" "<<cardLow<<endl;
+            checkIndex++;
+        } else{
+            return false;
+        }
     }
+    return true;
+}
 
 bool isStraightFlush(Deck& deck){
     return isFlush(deck) == true and isStraight(deck) == true;

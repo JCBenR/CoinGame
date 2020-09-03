@@ -21,6 +21,10 @@ int main(int argc, const char * argv[]) {
         {{10, "ten", "Spades"}, {3, "three", "Spades"}, {4, "four", "Spades"}, {5, "five", "Spades"}, {6, "six", "Spades"}}
     };
     
+    Deck straight = {
+        {{7, "ten", "Spades"}, {3, "three", "Spades"}, {4, "four", "Spades"}, {5, "five", "Spades"}, {6, "six", "Spades"}}
+    };
+    
     Deck royalFlush = {
         {{10, "ten", "Spades"}, {11, "three", "Spades"}, {12, "four", "Spades"}, {13, "five", "Spades"}, {14, "six", "Spades"}}
     };
@@ -36,7 +40,7 @@ int main(int argc, const char * argv[]) {
     int royalFlushNum=0;
     int fullHouseNum=0;
     int badHandNum = 0;
-    int iterations = 100000;
+    int iterations = 1;
     for (int i=0;i<iterations;i++)
     {
         shuffle(myDeck);
@@ -64,7 +68,17 @@ int main(int argc, const char * argv[]) {
         {
             badHandNum+=1;
         }
+        
+//        cout<<"smallest index: "<<smallestIndex(newHand, 0)<<endl;
+        selectionSortHand(newHand);
+        printDeck(newHand);
+        cout<<isStraight2(newHand)<<endl;
+        cout<<isStraight(newHand)<<endl;
+//        cout<<isStraight(straight)<<endl;
+//        cout<<isStraight2(straight)<<endl;
+//        printDeck(straight);
     }
+    
     
     std::cout<< "Royal Flushes: " << royalFlushNum << "/" << iterations << endl << "Straight Flushes: " << straightFlushNum << "/" << iterations << endl << "Full Houses: " << fullHouseNum << "/" << iterations << endl << "Flushes: " << flushNum << "/" << iterations << endl << "Straights: " << straightNum << "/" << iterations << endl << "Bad Hands: " << badHandNum << "/" << iterations << endl;
     

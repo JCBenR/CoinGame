@@ -40,7 +40,13 @@ int findMin(Deck& deck);
 bool Contains(Deck& deck, int lookFor);
 //bool compareCards (Card a, Card b);
 bool isStraight(Deck& deck);
+bool isStraight2(Deck& deck);
 bool isStraightFlush(Deck& deck);
 bool isRoyalFlush(Deck& deck);
 bool isFullHouse(Deck& deck);
+
+//HELPER FUNCTIONS
+void swap(Card& value1, Card& value2);
+int smallestIndex(Deck& deck, int startIdx);
+void selectionSortHand(Deck& deck);
 #endif /* cards_hpp */
