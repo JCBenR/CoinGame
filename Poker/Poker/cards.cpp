@@ -86,11 +86,32 @@ bool isFlush(Deck deck){
     } return true;
 }
 
-void isStraight(Deck deck){
-    sort(deck.cards[0].rankNum, deck.cards[4].rankNum);
-    for(Card card: deck.cards){
-        std::cout<<card.rankNum<<" "<<card.suit<<std::endl;
+Card findMin(Deck hand){
+    Card min = hand.cards[0];
+    for(Card card : hand.cards){
+        if(card.rankNum < min.rankNum){
+            min = card;
+        }
+    } return min;
+}
+
+bool isStraight(Deck deck){
+    Card minCard = findMin(deck);
+    int key = minCard.rankNum + 1;
+    if (std::count(deck.cards.begin(), deck.cards.end(), key)) {
+        key + 1;
     }
+    } return true;
+    
+//    sort(deck.cards[0].rankNum, deck.cards[4].rankNum);
+//    for(Card card: deck.cards){
+//        std::cout<<card.rankNum<<" "<<card.suit<<std::endl;
+//    }
+}
+
+switch (Deck deck)
+{
+    case 1:
 }
 
 /*

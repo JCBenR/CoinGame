@@ -37,4 +37,5 @@ Deck hand(Deck deck);
 void printHand(Deck& deck);
 bool isFlush(Deck deck);
 void isStraight(Deck deck);
+Card findMin(Deck hand);
 #endif /* cards_hpp */
