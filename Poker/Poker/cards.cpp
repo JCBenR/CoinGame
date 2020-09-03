@@ -58,7 +58,7 @@ void printDeck(Deck& deck){
 //}
 
 void shuffle(Deck& deck){
-    srand(time(0));
+    
     for (int i = 0; i<deck.cards.size(); i++) {
         int a = rand()%52;
         Card tempCard = deck.cards[i];
@@ -70,14 +70,14 @@ void shuffle(Deck& deck){
 //    }
 }
 
-Deck hand(Deck deck){
+Deck hand(Deck& deck){
     Deck handDeck;
     for (int i = 0; i<5; i++) {
         handDeck.cards.push_back(deck.cards[i]);
     } return handDeck;
 }
 
-bool isFlush(Deck deck){
+bool isFlush(Deck& deck){
     string mainCard = deck.cards[0].suit;
     for(Card card: deck.cards){
         if (card.suit != mainCard) {
@@ -85,33 +85,135 @@ bool isFlush(Deck deck){
         }
     } return true;
 }
-
-Card findMin(Deck hand){
-    Card min = hand.cards[0];
-    for(Card card : hand.cards){
-        if(card.rankNum < min.rankNum){
-            min = card;
-        }
-    } return min;
+//bool compareCards (Card a, Card b)
+//{
+//    return a.rankNum < b.rankNum;
+//}
+int findMin(Deck& deck){
+    Card minCard = deck.cards[0];
+    for (Card i: deck.cards)
+      {
+          if (i.rankNum<minCard.rankNum)
+          {
+              minCard = i;
+          }
+      }
+    return minCard.rankNum;
 }
 
-bool isStraight(Deck deck){
-    Card minCard = findMin(deck);
-    int key = minCard.rankNum + 1;
-    if (std::count(deck.cards.begin(), deck.cards.end(), key)) {
-        key + 1;
-    }
-    } return true;
-    
-//    sort(deck.cards[0].rankNum, deck.cards[4].rankNum);
-//    for(Card card: deck.cards){
-//        std::cout<<card.rankNum<<" "<<card.suit<<std::endl;
-//    }
-}
-
-switch (Deck deck)
+bool Contains(Deck& deck, int lookFor)
 {
-    case 1:
+    for (Card i: deck.cards)
+    {
+        if (i.rankNum == lookFor)
+        {
+            return true;
+        }
+    }
+
+  return false;
+}
+
+bool isStraight(Deck& deck){
+    
+    int min = findMin(deck);
+    for (int i = 0; i<4; i++)
+    {
+        if (Contains(deck, min+1))
+            {
+                min = min+1;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+    }
+
+bool isStraightFlush(Deck& deck){
+    return isFlush(deck) == true and isStraight(deck) == true;
+}
+
+bool isRoyalFlush(Deck& deck)
+{
+    int min = 10;
+    if (!Contains(deck, 10)) return false;
+    if (!isFlush(deck)) return false;
+    for (int i = 0; i<4; i++)
+    {
+        if (Contains(deck, min+1))
+        {
+            min = min + 1;
+        }
+        else{
+            return false;
+        }
+    }
+    return true;
+}
+
+bool isFullHouse(Deck& deck)
+{
+    int min = findMin(deck);
+    int trio;
+    for (Card card:deck.cards)
+    {
+        if (min != card.rankNum)
+        {
+            trio = card.rankNum;
+        }
+    }
+    int minCount = 0;
+    for (int i = 0; i<5; i++)
+    {
+        if  (deck.cards[i].rankNum == min)
+        {
+            minCount=minCount+1;
+        }
+    }
+    if (minCount == 2)
+    {
+        int trioCount = 0;
+        for (int i = 0; i<5; i++)
+        {
+            if (deck.cards[i].rankNum == trio)
+            {
+                trioCount=trioCount+1;
+            }
+        }
+        if (trioCount == 3)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    if (minCount == 3)
+    {
+        int trioCount = 0;
+        for (int i = 0; i<5; i++)
+        {
+            if (deck.cards[i].rankNum == trio)
+            {
+                trioCount=trioCount+1;
+            }
+        }
+        if (trioCount == 2)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return false;
+    }
 }
 
 /*

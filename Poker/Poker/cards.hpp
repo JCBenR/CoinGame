@@ -33,9 +33,14 @@ struct Deck {
 void getDeck(Deck&);
 void printDeck(Deck&);
 void shuffle(Deck& deck);
-Deck hand(Deck deck);
+Deck hand(Deck& deck);
 void printHand(Deck& deck);
-bool isFlush(Deck deck);
-void isStraight(Deck deck);
-Card findMin(Deck hand);
+bool isFlush(Deck& deck);
+int findMin(Deck& deck);
+bool Contains(Deck& deck, int lookFor);
+//bool compareCards (Card a, Card b);
+bool isStraight(Deck& deck);
+bool isStraightFlush(Deck& deck);
+bool isRoyalFlush(Deck& deck);
+bool isFullHouse(Deck& deck);
 #endif /* cards_hpp */
