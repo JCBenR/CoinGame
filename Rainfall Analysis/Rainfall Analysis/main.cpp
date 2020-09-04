@@ -6,6 +6,7 @@
 //  Copyright © 2020 Justin Siebenhaar. All rights reserved.
 //
 
+#include "rainAnalysis.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -15,29 +16,11 @@ using namespace std;
 
 string city;
 
-struct RainMonthData { string month; int year; double precip;};
-
 vector<RainMonthData> raindrops;
-
-//FUNCTION DECLARATIONS
-void printData(vector<RainMonthData> rain);
-
-////need to use a for loop inside a while loop.
-//the
-//while(getline(....)){
-//    if(some conditions){
-//        //do this
-//    }
-//    else{
-//        stuff to populate vector
-//    }
-//
-//}
-//getline(filename, line)
-
 
 int main(int argc, const char * argv[]) {
 
+string Months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     
     ifstream rain("macon.txt");
     
@@ -48,13 +31,8 @@ int main(int argc, const char * argv[]) {
     
     string line;
     
-//    while (getline(rain, line)) {
-//        if (rain>>city) {
-//            city = city;
-//        }
-//    }
-    
     getline(rain, line);
+    city = line;
     cout<<"the city is: "<<line<<endl;
     
         RainMonthData temp;
@@ -64,15 +42,36 @@ int main(int argc, const char * argv[]) {
             temp.precip = precip;
             raindrops.push_back(temp);
     }
-
-    
-    for(RainMonthData i: raindrops){
-        cout<<i.precip<<endl;
-    }
-    cout<<city<<endl;
-    printData(raindrops);
-//
     rain.close();
+//    cout<<dataPoints(raindrops)<<endl;
+//
+//    for(RainMonthData i: raindrops){
+//        cout<<i.precip<<endl;
+//    }
+//    cout<<city<<endl;
+    cout<<"The overall average rainfall amount is "<<overallAvg(raindrops) <<" inches."<<endl;
+//    cout<<monthAvg(raindrops, "January")<<endl;
+    
+//    for (int i = 0; i<12; i++) {
+//        for(RainMonthData i : months(raindrops, Months[i])){
+//            cout<<Months[i]<<i.precip<<endl;
+//        }
+//    }
+
+
+//    for (int i=0; i<12; i++) {
+//        string thisMonth = Months[i];
+//        double totalRF = 0;
+//        int totalRecords = 0;
+//        double avgForMonth = 0;
+//        for(RainMonthData z : months(raindrops, thisMonth)){
+//            totalRF += z.precip;
+//            totalRecords++;
+//        } avgForMonth = totalRF / totalRecords;
+//        cout<<thisMonth<<" "<<avgForMonth<<endl;
+//    }
+
+    monthAvg(raindrops);
     
     return 0;
 }
@@ -82,14 +81,4 @@ int main(int argc, const char * argv[]) {
     
     
     
-void printData(vector<RainMonthData> rain){
-    for(RainMonthData i: rain){
-           cout<<i.month<<","<<i.year<<","<<i.precip<<endl;
-       }
-}
 
-string getTitle(){
-    string city;
-    
-    return city;
-};

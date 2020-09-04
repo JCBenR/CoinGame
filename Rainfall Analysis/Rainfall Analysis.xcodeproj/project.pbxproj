@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E3C4D7925018981001546CC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C4D7825018981001546CC /* main.cpp */; };
+		5E3C4D842501CD7E001546CC /* rainAnalysis.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5E3C4D822501CD7E001546CC /* rainAnalysis.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		5E3C4D7525018981001546CC /* Rainfall Analysis */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Rainfall Analysis"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E3C4D7825018981001546CC /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		5E3C4D822501CD7E001546CC /* rainAnalysis.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = rainAnalysis.cpp; sourceTree = "<group>"; };
+		5E3C4D832501CD7E001546CC /* rainAnalysis.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = rainAnalysis.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				5E3C4D7825018981001546CC /* main.cpp */,
+				5E3C4D822501CD7E001546CC /* rainAnalysis.cpp */,
+				5E3C4D832501CD7E001546CC /* rainAnalysis.hpp */,
 			);
 			path = "Rainfall Analysis";
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E3C4D7925018981001546CC /* main.cpp in Sources */,
+				5E3C4D842501CD7E001546CC /* rainAnalysis.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
