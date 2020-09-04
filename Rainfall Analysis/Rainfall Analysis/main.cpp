@@ -43,36 +43,15 @@ string Months[] = {"January", "February", "March", "April", "May", "June", "July
             raindrops.push_back(temp);
     }
     rain.close();
-//    cout<<dataPoints(raindrops)<<endl;
-//
-//    for(RainMonthData i: raindrops){
-//        cout<<i.precip<<endl;
-//    }
-//    cout<<city<<endl;
+
     cout<<"The overall average rainfall amount is "<<overallAvg(raindrops) <<" inches."<<endl;
-//    cout<<monthAvg(raindrops, "January")<<endl;
+
     
-//    for (int i = 0; i<12; i++) {
-//        for(RainMonthData i : months(raindrops, Months[i])){
-//            cout<<Months[i]<<i.precip<<endl;
-//        }
-//    }
-
-
-//    for (int i=0; i<12; i++) {
-//        string thisMonth = Months[i];
-//        double totalRF = 0;
-//        int totalRecords = 0;
-//        double avgForMonth = 0;
-//        for(RainMonthData z : months(raindrops, thisMonth)){
-//            totalRF += z.precip;
-//            totalRecords++;
-//        } avgForMonth = totalRF / totalRecords;
-//        cout<<thisMonth<<" "<<avgForMonth<<endl;
-//    }
-
-    monthAvg(raindrops);
-    
+    //monthAvg(raindrops);
+//    selectionSortHand(raindrops);
+//    printData(raindrops);
+    //printWettest(raindrops);
+    findMiddle(raindrops);
     return 0;
 }
 
