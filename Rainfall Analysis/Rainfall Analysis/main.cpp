@@ -44,14 +44,46 @@ string Months[] = {"January", "February", "March", "April", "May", "June", "July
     }
     rain.close();
 
+    // open a file in write mode.
+    ofstream RainJDS;
+    RainJDS.open("jdsrain.txt");
+
+    // WRITE DATA TO FILE
+    
+    //overall average
+    RainJDS << "The overall average rainfall amount is "<<overallAvg(raindrops) <<" inches." << endl;
+    
+    //every month average
+    for(RainJustMonthData i : monthAvg(raindrops)){
+        RainJDS << "The average rainfall amount for "<<i.month<<" is "<<i.precip<<" inches."<<endl;
+    };
+    
+    //four wettest months
+    RainJDS << "The rain amounts (in inches) of the four wettest months are: ";
+    for(double i: wet(raindrops)){
+        RainJDS<<i;};
+    RainJDS<<endl;
+    
+    //four driest months
+    RainJDS << "The rain amounts (in inches) of the four driest months are: ";
+    for(double i: dry(raindrops)){
+        RainJDS<<i;};
+    RainJDS<<endl;
+    
+    //median
+    RainJDS << "The median months is: "<<findMiddle(raindrops).month<<" "<<findMiddle(raindrops).year<<" "<<findMiddle(raindrops).precip<<"."<<endl;
+
+    // close the opened file.
+    RainJDS.close();
+    
     cout<<"The overall average rainfall amount is "<<overallAvg(raindrops) <<" inches."<<endl;
 
-    
-    //monthAvg(raindrops);
+    //TEST FUNCTIONS
+//    monthAvg(raindrops);
 //    selectionSortHand(raindrops);
 //    printData(raindrops);
-    //printWettest(raindrops);
-    findMiddle(raindrops);
+//    printWettest(raindrops);
+//    findMiddle(raindrops);
     return 0;
 }
 

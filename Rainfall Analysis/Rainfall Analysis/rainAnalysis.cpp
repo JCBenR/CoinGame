@@ -20,11 +20,9 @@ void printData(vector<RainMonthData>& rain){
 }
 
 string getTitle(){
-    string city;
-    
+    string city;    
     return city;
 };
-
 
 int dataPoints(vector<RainMonthData>& rain){
     int totalDataPoints = 0;
@@ -53,18 +51,22 @@ vector<RainMonthData> months(vector<RainMonthData>& rain, string month){
     }return forMonth;
 }
 
-void monthAvg(vector<RainMonthData>& rain){
+vector<RainJustMonthData> monthAvg(vector<RainMonthData>& rain){
+    vector<RainJustMonthData> justMonthData;
     for (int i=0; i<12; i++) {
+        RainJustMonthData getTheMonthData;
     string thisMonth = Months[i];
     double totalRF = 0;
     int totalRecords = 0;
     double avgForMonth = 0;
-    for(RainMonthData z : months(rain, thisMonth)){
-        totalRF += z.precip;
-        totalRecords++;
-    } avgForMonth = totalRF / totalRecords;
-        cout<<"The average rainfall amount for "<<thisMonth<<" is "<<avgForMonth<<" inches."<<endl;
-    }
+        for(RainMonthData z : months(rain, thisMonth)){
+            totalRF += z.precip;
+            totalRecords++;
+        } avgForMonth = totalRF / totalRecords;
+        getTheMonthData.month = thisMonth;
+        getTheMonthData.precip = avgForMonth;
+        justMonthData.push_back(getTheMonthData);
+    } return justMonthData;
 }
 
 void swap(RainMonthData& value1, RainMonthData& value2){
@@ -101,6 +103,7 @@ void printPrecip(vector<RainMonthData>& rain){
        }
 }
 
+//not used
 void printWettest(vector<RainMonthData>& rain){
     selectionSortHand(rain);
     vector<RainMonthData> wettest;
@@ -111,15 +114,26 @@ void printWettest(vector<RainMonthData>& rain){
     for (int i = rain.size()-1; i>rain.size()-5; i--) {
         wettest.push_back(rain[i]);
     }
-    cout<<"the dryest months were: ";
-    printPrecip(dryest);
-    cout<<endl;
-    cout<<"the wettest months were: ";
-    printPrecip(wettest);
 }
 
+vector<double> dry(vector<RainMonthData>& rain){
+    selectionSortHand(rain);
+    vector<double> mostDry;
+    for (int i =0; i<4; i++) {
+        mostDry.push_back(rain[i].precip);
+    } return mostDry;
+}
 
-void findMiddle(vector<RainMonthData>& rain){
+vector<double> wet(vector<RainMonthData>& rain){
+    selectionSortHand(rain);
+    vector<double> mostWet;
+    for (int i = rain.size()-1; i>rain.size()-5; i--) {
+        mostWet.push_back(rain[i].precip);
+    }
+    return mostWet;
+}
+
+RainMonthData findMiddle(vector<RainMonthData>& rain){
     selectionSortHand(rain);
     float median;
     size_t size = rain.size();
@@ -131,7 +145,5 @@ void findMiddle(vector<RainMonthData>& rain){
       {
         median = (float)size/2;
       }
-    cout<<"the middle is: ";
-    rain[median];
-    cout<<endl;
+    return rain[median];
     }
