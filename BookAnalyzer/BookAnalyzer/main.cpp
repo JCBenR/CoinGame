@@ -11,19 +11,26 @@
 #include <vector>
 #include <fstream>
 
+#include "bookAnalysis.hpp"
+
 using namespace std;
 
-int getIndex(vector<string> v, string Z);
 
 int main(int argc, const char * argv[]) {
     vector<string> house;
-    ifstream houseBook("emptyHouse.txt");
+    
+    ifstream houseBook("testFile.txt");
     
     string str;
     string bookContents;
+    string keyword = "Hemingway";
+
     
     std::string line;
     std::vector<std::string> myLines;
+    std::vector<keywordList> listOfKeywords;
+    
+    
     while (houseBook>>line)
     {
         
@@ -32,34 +39,40 @@ int main(int argc, const char * argv[]) {
         
     houseBook.close();
     
-    cout << house[61] << endl;
+    cout<<"what is the keyword you'd like to search for?"<<endl;
+    cin>>keyword;
     
     
     //GET TITLE AND AUTHOR
     //====================
     //using getIndex to find the index of the term "Title:" (note it needs to be capitalized and have the colon)
-    int titlePlace = getIndex(house, "Title:");
-    int authorPlace = getIndex(house, "Author:");
+    vector<string> title = getTitle(house);
+    vector<string> author = getAuthor(house);
     
-    for (int i = titlePlace; i<titlePlace + 100; i++) {
-        if (house[i] == "Author:") {
-            break;
-        } else{
-            cout << house[i] << " ";}
+    cout<<"statistics for ";
+    if (title[0]==""){
+       cout<<"unknown ";
+    } else {
+        for(string t : title){
+           cout<<t<<" ";
+       }
+    }
+    cout<<"by ";
+    if (author[0]=="") {
+        cout<<"unknown ";
+    } else {
+        for(string a : author){
+            cout<<a<<" ";
+        }
     }
     cout<<endl;
-    for (int i = authorPlace; i<authorPlace + 100; i++) {
-        if (house[i] == "Release") {
-            break;
-        } else{
-            cout << house[i] << " ";}
-    }
     
     
     //NUMBER OF WORDS
     //===============
     int size = house.size();
-    cout << size << endl;
+    cout << "number of words: "<< size << endl;
+    
     
     //NUMBER OF CHARACTERS
     //====================
@@ -67,64 +80,45 @@ int main(int argc, const char * argv[]) {
     for(string i: house){
         totalChar += i.size();
     }
-    cout << totalChar << endl;
+    cout << "number of characters: "<< totalChar << endl;
+    
     
     //GET SHORTEST WORD
     //=================
-    string shortestWord = "yelby";
+    string shortestWord = "box";
     for(string w: house){
         if(w.size() < shortestWord.size())
             shortestWord = w;
     }
     
-    cout<<shortestWord<<endl;
-    
-    
     
     //GET LONGEST WORD
     //================
-    //this is working but the longest word is a URL, so i don't really like that. I'd like to figure out how to eliminate them.
+    //this is working but the longest word is a URL, so i don't really like that.
+    //I'd like to figure out how to eliminate them.
     string longestWord = "yelby";
       for(string w: house){
-          if(w.size() > longestWord.size() && (longestWord.find("http") != std::string::npos))
+          if(w.size() > longestWord.size())
               longestWord = w;
       }
     
-    cout<<longestWord<<endl;
+    cout<< "the shortest word is " << "\""<<shortestWord<< "\", and the longest word is \""<<longestWord<<"\"."<<endl;
+
     
-    if(longestWord.find("http") != std::string::npos){
-        cout << "it's a URL"<<endl;
+    //GET KEYWORD
+    //===========
+    //first find all instances of keyword, create a vector to add their index and the words proceeding and ending it as well as the word (string)
+    vector<keywordList> key = keywordFunc(house, keyword);
+    double bookSize = house.size();
+    cout<<"The word \""<<keyword<<"\" appears "<<key.size()<<" times:"<<endl;
+    for(keywordList i: key){
+        //loop through each string occurance in list, get index
+        int z = i.index;
+        //calculate percentage relative to total size of book
+        int percent = (z / bookSize)*100;
+        //display results
+        cout<<"at "<<percent<<"%:";
+        cout<<" \""<<i.before<<" "<<i.keywordAt<<" "<<i.after<<"\""<<endl;
     }
     return 0;
-}
-
-//GET SHORTEST WORD
-//=================
-//string shortestWord = "yelby";
-//for(string w: house){
-//    if(w.size() < shortestWord.size())
-//        shortestWord = w;
-//}
-
-
-
-int getIndex(vector<string> v, string Z)
-{
-    auto it = find(v.begin(),
-                   v.end(), Z);
-    int thePlace;
-    // If element was found
-    if (it != v.end()) {
-        // calculating the index
-        // of Z
-        int index = distance(v.begin(),
-                             it);
-        thePlace = index;
-        cout << index << endl;
-    }
-    else {
-        // If the element is not
-        // present in the vector
-        cout << "-1" << endl;
-    } return thePlace;
 }
