@@ -18,8 +18,10 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
     vector<string> house;
-    
-    ifstream houseBook("testFile.txt");
+    cout<<"enter name of file you'd like to upload (please include file extension)."<<endl;
+    string fileName;
+    cin>>fileName;
+    ifstream houseBook(fileName);
     
     string str;
     string bookContents;
