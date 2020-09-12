@@ -66,6 +66,7 @@ bool GetBit(uint32_t input, int b)
  */
 bool IsNegative(int input)
 {
+    //a negative number will have a '1' in the first spot (most significant bit/MSB/furthest to the left). If you take that number and move it 31 spaces to the right, it will be at the very end (Least Significant Bit/LSB), which is also the place of the number 1 in binary (0001). hence, if a nubmer is negative and it's moved over that distance, it will be the same as 1 and they will match and the if statment will be TRUE. the inverse is also correct. if it's not negative the first number will be 0.
     if(1 & (input >> (31))){
         return true;
     }
@@ -89,6 +90,7 @@ bool IsNegative(int input)
 int NumBitsSet(uint32_t input)
 {
     int numSets = 0;
+    //this one takes a uint32_t number. converting that to binary it's 32 spaces. it will loop through this 32 times. each loop will shift the 1 over one spot, starting at the LSB. it will then compare (&/AND) to see if the input at that spot matches 1. if so, numSets is incremented. both have to be 1 for it to resolve TRUE (which is the operation of &).
     for(int i=0; i<32; i++){
         if(input & (1<<(i))){
             numSets++;
@@ -116,10 +118,15 @@ int NumBitsSet(uint32_t input)
  */
 unsigned char GetByte(uint32_t input, int b)
 {
+    //in first example. a becomes 1 (0+1 = 1);
     int a=b+1;
+    //a becomes 8 (1*8=8)
     a*=8;
+    //input gets shiffted left 24 spots (32-8=24);
     input = input<<(32-a);
+    //input now gets shifted back 24 spots. the above number will change depending on a, but this will always be 24 spots, which is back to the first bit position. the above 2 steps basically clear the deck, making everything but the first postion (the byte we want) all 0's.
     input = input>>24;
+    //so now we're left with just the byte we want with nothing but 0's ahead of it and we can return that.
     
     return input;
 }
@@ -153,7 +160,7 @@ uint32_t SetByte(uint32_t input, uint8_t value, int b)
     //shift the mask to where we want it
     mask = mask << b; //0x0000FF00
     //invert everything with ~
-    mask = ~mask;//0xFFFF00FF
+    mask = ~mask;//0xFFFF00FF //
     //00000000
     //FFFF00FF
     //with & if both are 1 the answer is 1. otherwise it's zero
@@ -163,6 +170,8 @@ uint32_t SetByte(uint32_t input, uint8_t value, int b)
     convertValue = convertValue << b;
     //0000FF00
     input = input | convertValue;
+    //00000000
+    //0000ff00
     return input;
 }
 
