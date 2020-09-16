@@ -33,9 +33,10 @@ Vector growVector(Vector& vec){
     }
     //delete array in old vector
     vec.capacity *=2;
+    freeVector(vec);
     vec.arrStart = newCapacity;
 //this is causing an issue.
-    //freeVector(vec);
+    
     return vec;
 }
 

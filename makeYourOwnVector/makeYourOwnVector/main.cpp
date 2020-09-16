@@ -51,6 +51,7 @@ int main(int argc, const char * argv[]) {
     assert(firstArr.capacity == 24 && firstArr.size == 17);
     cout<<"the size is: "<<firstArr.size<<" AND the capacity is: "<<firstArr.capacity<<endl;
     cout<<firstArr.arrStart<<endl;
-    
+    freeVector(firstArr);
+    cout<<firstArr.arrStart<<endl;
     return 0;
 }
