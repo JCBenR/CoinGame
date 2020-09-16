@@ -107,20 +107,32 @@ void Vector::pushBack(int value){
 //    }
 //}
 
-void Vector::popBack(Vector& vec){
+void Vector::popBack(){
     //find the last element, which is the one we want to pop off. should be the last element based on size.
     //int end = vec.size;
     //delete the value there. couldn't get this to work.
 //    delete vec.arrStart[end];
     //decrease the size of the array. this will just incriment again if another is added.
-    vec.size--;
+    size--;
 }
 
 int Vector::get(int index){
     return arrStart[index];
 }
 
-void Vector::set(Vector& vec, int index, int newValue){
-    vec.arrStart[index] = newValue;
+//Need to get this working to return the address
+int Vector::getAddress(int index){
+    return arrStart[index];
 }
 
+void Vector::set(int index, int newValue){
+    arrStart[index] = newValue;
+}
+
+int Vector::getSize(){
+    return size;
+}
+
+int Vector::getCapacity(){
+    return capacity;
+}

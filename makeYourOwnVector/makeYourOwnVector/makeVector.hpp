@@ -20,10 +20,13 @@ public:
     Vector(int initialCapacity);
     void freeVector(Vector vec);
     void pushBack(int value);
-    void popBack(Vector& vec);
+    void popBack();
     int get(int index);
-    void set(Vector& vec, int index, int newValue);
+    int getAddress(int index);
+    void set(int index, int newValue);
     void growVector();
+    int getSize();
+    int getCapacity();
 private:
     int* arrStart;
     int capacity;
