@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  dummy
+//  pointer practice
 //
 //  Created by Justin Siebenhaar on 9/12/20.
 //  Copyright © 2020 Justin Siebenhaar. All rights reserved.
