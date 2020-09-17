@@ -56,5 +56,10 @@ int main(int argc, const char * argv[]) {
     cout<<firstArr.get(0)<<endl;
     //freeVector(firstArr);
     cout<<firstArr.get(0)<<endl;
+    
+    //TEST THAT INDEX CAN BE CHANGED
+    cout<<firstArr[1]<<endl;
+    firstArr[1] = 45;
+    cout<<firstArr[1]<<endl;
     return 0;
 }

@@ -15,6 +15,7 @@
 
 
 class Vector {
+    
 public:
     Vector();
     Vector(int initialCapacity);
@@ -27,10 +28,15 @@ public:
     void growVector();
     int getSize();
     int getCapacity();
+    int& operator[](int index);
+    int operator[](int index)const;
+    
 private:
     int* arrStart;
     int capacity;
     int size;
+    
+    
 };
 
 //Vector makeVector(int capacity);

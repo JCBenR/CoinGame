@@ -120,6 +120,10 @@ int Vector::get(int index){
     return arrStart[index];
 }
 
+int Vector::operator[](int index)const{
+    return arrStart[index];
+}
+
 //Need to get this working to return the address
 int Vector::getAddress(int index){
     return arrStart[index];
@@ -128,6 +132,11 @@ int Vector::getAddress(int index){
 void Vector::set(int index, int newValue){
     arrStart[index] = newValue;
 }
+
+int& Vector::operator[](int index){
+   return arrStart[index];
+}
+
 
 int Vector::getSize(){
     return size;
