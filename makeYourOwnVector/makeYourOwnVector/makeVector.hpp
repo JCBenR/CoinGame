@@ -17,8 +17,14 @@
 class Vector {
     
 public:
+    
     Vector();
     Vector(int initialCapacity);
+    //rule of three
+    ~Vector();
+    Vector(const Vector& rhs);
+    Vector& operator=(const Vector& rhs);
+    
     void freeVector(Vector vec);
     void pushBack(int value);
     void popBack();

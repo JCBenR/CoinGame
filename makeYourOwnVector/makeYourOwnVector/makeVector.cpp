@@ -145,3 +145,33 @@ int Vector::getSize(){
 int Vector::getCapacity(){
     return capacity;
 }
+
+
+//RULE OF THREE
+
+//destructor
+Vector::~Vector(){
+    delete [] arrStart;
+}
+
+//copy constructor
+Vector::Vector(const Vector& rhs){
+    arrStart =  new int[size+1];
+    for(int i =0; i<size; i++){
+        arrStart[i] = rhs.arrStart[i];
+    }
+}
+
+//copy assignment operator
+Vector& Vector::operator=(const Vector& rhs){
+    if(this == &rhs){ //check if they're the same object.
+         return *this;
+      }
+    delete [] arrStart;
+    arrStart = new int[rhs.size+1];
+    for(int i = 0; i<rhs.size; i++){
+        arrStart[i] = rhs.arrStart[i];
+    }
+    
+    return *this;
+}

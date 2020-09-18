@@ -61,5 +61,13 @@ int main(int argc, const char * argv[]) {
     cout<<firstArr[1]<<endl;
     firstArr[1] = 45;
     cout<<firstArr[1]<<endl;
+    
+    //TEST RULE OF THREE
+    
+    Vector secondArr(8);
+    secondArr.pushBack(99);
+    firstArr = secondArr;
+    assert(firstArr[0]==99);
+    cout<<firstArr[0]<<endl;
     return 0;
 }
