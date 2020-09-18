@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5EDF6E59251524970051B600 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF6E58251524970051B600 /* main.cpp */; };
-		5EDF6E62251524D10051B600 /* triple.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5EDF6E60251524D10051B600 /* triple.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,7 +25,6 @@
 /* Begin PBXFileReference section */
 		5EDF6E55251524970051B600 /* templatesLab */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = templatesLab; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EDF6E58251524970051B600 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		5EDF6E60251524D10051B600 /* triple.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = triple.cpp; sourceTree = "<group>"; };
 		5EDF6E61251524D10051B600 /* triple.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = triple.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,7 +59,6 @@
 			isa = PBXGroup;
 			children = (
 				5EDF6E58251524970051B600 /* main.cpp */,
-				5EDF6E60251524D10051B600 /* triple.cpp */,
 				5EDF6E61251524D10051B600 /* triple.hpp */,
 			);
 			path = templatesLab;
@@ -124,7 +121,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EDF6E59251524970051B600 /* main.cpp in Sources */,
-				5EDF6E62251524D10051B600 /* triple.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
