@@ -40,6 +40,13 @@ public:
     T& operator[](int index);
     T operator[](int index)const;
     
+    bool operator==(const Vector<T>& rhs);
+    bool operator!=(const Vector& rhs);
+    bool operator<(const Vector<T>& rhs);
+    bool operator>(const Vector<T>& rhs);
+    bool operator<=(const Vector<T>& rhs);
+    bool operator>=(const Vector<T>& rhs);
+    
 private:
     T* arrStart;
     int capacity;
@@ -105,6 +112,48 @@ T& Vector<T>::operator[](int index){
    return arrStart[index];
 }
 
+template<typename T>
+bool Vector<T>::operator==(const Vector<T>& rhs){
+    for(int i =0; i<size; i++){
+        if(arrStart[i] != rhs[i]){
+            return false;
+        }
+    }return true;
+};
+
+template<typename T>
+bool Vector<T>::operator!=(const Vector<T>& rhs){
+        return (!operator==(rhs));
+};
+
+template<typename T>
+bool Vector<T>::operator<(const Vector<T>& rhs){
+    for(int i =0; i<size; i++){
+        if(arrStart[i] > rhs[i]){
+            return false;
+        }
+    }return true;
+};
+
+template<typename T>
+bool Vector<T>::operator>(const Vector<T>& rhs){
+    return (!operator<(rhs));
+};
+
+template<typename T>
+bool Vector<T>::operator>=(const Vector<T>& rhs){
+    return (operator>(rhs)||operator==(rhs));
+};
+
+template<typename T>
+bool Vector<T>::operator<=(const Vector<T>& rhs){
+    return (operator<(rhs)||operator==(rhs));
+};
+//bool operator!=(Vector& rhs);
+//bool operator<(Vector& rhs);
+//bool operator>(Vector& rhs);
+//bool operator<=(Vector& rhs);
+//bool operator>=(Vector& rhs);
 
 //RULE OF THREE
 
