@@ -17,13 +17,30 @@ int main(int argc, const char * argv[]) {
     
     
     
-    Vector firstArr(6);
+    Vector <int> firstArr(6);
     firstArr.pushBack(10);
     cout<<firstArr.get(0)<<endl;
     cout<<firstArr.getCapacity()<<endl;
     //cout<<firstArr.get(0)<<endl;
     //TEST THAT CAPACITY IS 6, AS SET ABOVE AND THAT SIZE IS 1
     assert(firstArr.getCapacity() == 6 && firstArr.getSize() == 1);
+    
+    Vector<double> doubleArr(6);
+    doubleArr.pushBack(10.88);
+    cout<<doubleArr.get(0)<<endl;
+    
+    Vector<string> stringArr(2);
+    stringArr.pushBack("good day");
+    cout<<stringArr.get(0)<<endl;
+    stringArr.pushBack("more stuff");
+    stringArr.pushBack("the last stuff");
+    cout<<stringArr.get(2)<<endl;
+    
+    Vector<char> charArr(2);
+    charArr.pushBack('a');
+    charArr.pushBack('b');
+    charArr.pushBack('c');
+    cout<<charArr.get(2)<<endl;
     
     //SHOW WHAT ADDRESS IS OF ARRAY START
     //cout<<firstArr.arrStart<<endl;
@@ -33,12 +50,12 @@ int main(int argc, const char * argv[]) {
     }
     cout<<"the capacity is: "<<firstArr.getCapacity()<<endl;
     assert(firstArr.getCapacity() == 12 && firstArr.getSize() == 8);
-    
+
     //REMOVE ONE AND TEST THAT SIZE IS NOW 7;
     firstArr.popBack();
     assert(firstArr.getCapacity() == 12 && firstArr.getSize() == 7);
     cout<<"the size is: "<<firstArr.getSize()<<endl;
-    
+
     //TEST THAT FIRST INDEX IS 45, THEN CHANGE FIRST INDEX TO 33 AND TEST
     cout<<"ARRAY index 1 is: "<<firstArr.get(1)<<endl;
     assert(firstArr.get(1)==45);
@@ -56,18 +73,25 @@ int main(int argc, const char * argv[]) {
     cout<<firstArr.get(0)<<endl;
     //freeVector(firstArr);
     cout<<firstArr.get(0)<<endl;
-    
+
     //TEST THAT INDEX CAN BE CHANGED
     cout<<firstArr[1]<<endl;
     firstArr[1] = 45;
     cout<<firstArr[1]<<endl;
-    
+
     //TEST RULE OF THREE
-    
-    Vector secondArr(8);
+
+    Vector <int> secondArr(8);
     secondArr.pushBack(99);
     firstArr = secondArr;
     assert(firstArr[0]==99);
     cout<<firstArr[0]<<endl;
+    {
+        Vector <int> thirdArr(8);
+        thirdArr.pushBack(44);
+        cout<<thirdArr.get(0)<<endl;
+        
+    }
+    
     return 0;
 }

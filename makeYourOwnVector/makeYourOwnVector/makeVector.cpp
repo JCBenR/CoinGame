@@ -6,13 +6,13 @@
 //  Copyright © 2020 Justin Siebenhaar. All rights reserved.
 //
 
-#include "makeVector.hpp"
+//#include "makeVector.hpp"
 
-Vector::Vector(int initialCapacity){
-    arrStart = new int[initialCapacity];
-    capacity = initialCapacity;
-    size=0;
-}
+//Vector::Vector(int initialCapacity){
+//    arrStart = new int[initialCapacity];
+//    capacity = initialCapacity;
+//    size=0;
+//}
 ////declare that this will make a struct of Vector and take in the capacity we want it to be to start with.
 //Vector makeVector(int capacity){
 //    //pointer to beginning to array, making a new array of the capacity we declare.
@@ -47,17 +47,17 @@ Vector::Vector(int initialCapacity){
 //}
 
 //METHOD VERSION
-void Vector::growVector(){
-    if (capacity == 0) {
-        capacity++;
-    }
-    int * newVector = new int[capacity*2];
-    for(int i=0; i<capacity; i++){
-        newVector[i] = arrStart[i];
-    }
-    capacity *=2;
-    arrStart = newVector;
-}
+//void Vector::growVector(){
+//    if (capacity == 0) {
+//        capacity++;
+//    }
+//    int * newVector = new int[capacity*2];
+//    for(int i=0; i<capacity; i++){
+//        newVector[i] = arrStart[i];
+//    }
+//    capacity *=2;
+//    arrStart = newVector;
+//}
 
 //void Vector::pushBack(Vector& vec, int value){
 //    //check to see if the size is less than capacity so we know we have room and a spot to actually put this. if so, proceed.
@@ -79,14 +79,17 @@ void Vector::growVector(){
 //    }
 //}
 
-void Vector::pushBack(int value){
-    
-    if (size > capacity) {
-        growVector();
-    }
-    arrStart[size] = value;
-    size++;
-}
+//void Vector::pushBack(int value){
+//    
+//    if (size > capacity) {
+//        growVector();
+//    }
+//    arrStart[size] = value;
+//    size++;
+//}
+
+
+
 //void Vector::pushBack(int value){
 //    //check to see if the size is less than capacity so we know we have room and a spot to actually put this. if so, proceed.
 //    if(size <= capacity){
@@ -107,71 +110,73 @@ void Vector::pushBack(int value){
 //    }
 //}
 
-void Vector::popBack(){
-    //find the last element, which is the one we want to pop off. should be the last element based on size.
-    //int end = vec.size;
-    //delete the value there. couldn't get this to work.
-//    delete vec.arrStart[end];
-    //decrease the size of the array. this will just incriment again if another is added.
-    size--;
-}
+//void Vector::popBack(){
+//    //find the last element, which is the one we want to pop off. should be the last element based on size.
+//    //int end = vec.size;
+//    //delete the value there. couldn't get this to work.
+////    delete vec.arrStart[end];
+//    //decrease the size of the array. this will just incriment again if another is added.
+//    size--;
+//}
 
-int Vector::get(int index){
-    return arrStart[index];
-}
+//int Vector::get(int index){
+//    return arrStart[index];
+//}
+//
+//int Vector::operator[](int index)const{
+//    return arrStart[index];
+//}
 
-int Vector::operator[](int index)const{
-    return arrStart[index];
-}
+////Need to get this working to return the address
+//int Vector::getAddress(int index){
+//    return arrStart[index];
+//}
 
-//Need to get this working to return the address
-int Vector::getAddress(int index){
-    return arrStart[index];
-}
-
-void Vector::set(int index, int newValue){
-    arrStart[index] = newValue;
-}
-
-int& Vector::operator[](int index){
-   return arrStart[index];
-}
-
-
-int Vector::getSize(){
-    return size;
-}
-
-int Vector::getCapacity(){
-    return capacity;
-}
+//void Vector::set(int index, int newValue){
+//    arrStart[index] = newValue;
+//}
+//
+//int& Vector::operator[](int index){
+//   return arrStart[index];
+//}
+//
+//
+//int Vector::getSize(){
+//    return size;
+//}
+//
+//int Vector::getCapacity(){
+//    return capacity;
+//}
 
 
-//RULE OF THREE
-
-//destructor
-Vector::~Vector(){
-    delete [] arrStart;
-}
-
-//copy constructor
-Vector::Vector(const Vector& rhs){
-    arrStart =  new int[size+1];
-    for(int i =0; i<size; i++){
-        arrStart[i] = rhs.arrStart[i];
-    }
-}
-
-//copy assignment operator
-Vector& Vector::operator=(const Vector& rhs){
-    if(this == &rhs){ //check if they're the same object.
-         return *this;
-      }
-    delete [] arrStart;
-    arrStart = new int[rhs.size+1];
-    for(int i = 0; i<rhs.size; i++){
-        arrStart[i] = rhs.arrStart[i];
-    }
-    
-    return *this;
-}
+////RULE OF THREE
+//
+////destructor
+//Vector::~Vector(){
+//    delete [] arrStart;
+//}
+//
+////copy constructor
+//Vector::Vector(const Vector& rhs){
+//    arrStart =  new int[size+1];
+//    for(int i =0; i<size; i++){
+//        arrStart[i] = rhs.arrStart[i];
+//    }
+//}
+//
+////copy assignment operator
+//Vector& Vector::operator=(const Vector& rhs){
+//    if(this == &rhs){ //check if they're the same object.
+//         return *this;
+//      }
+//    delete [] arrStart;
+//    arrStart = new int[rhs.size+1];
+//    size = rhs.size;
+//    capacity = rhs.capacity;
+//    for(int i = 0; i<rhs.size; i++){
+//        arrStart[i] = rhs.arrStart[i];
+//    }
+//    
+//    return *this;
+//}
