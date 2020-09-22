@@ -30,4 +30,6 @@
 .DS_Store
 
 
+/helloSFMLworld/build/
+/helloSFMLworld/xcode/
 /helloSFMLworld/src/
